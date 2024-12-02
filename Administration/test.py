@@ -41,3 +41,11 @@ def dashboard():
     cur.close()
 
     return render_template('dashboard.html', students=students)
+
+@app.route('/logout')
+def logout():
+    sessions.pop('teacher_id', None)
+    return redirect(url_for('home'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
