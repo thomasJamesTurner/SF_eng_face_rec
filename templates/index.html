@@ -1,0 +1,37 @@
+<title>Attendance System</title>
+
+<head>
+  <h1>Attendance Sytem</h1>
+</head>
+<body>
+  <h2>Camera View</h2>
+  <script src="static/webcam.js"></script>
+
+	<div id="camera" style="width:320px; height:240px;"></div>
+	<div id="result"></div>
+
+	<script>
+
+	Webcam.attach('#camera');
+  var image_taken;
+
+  function take_snapshot() {
+	  Webcam.snap( function(data_uri) {
+		  document.getElementById('result').innerHTML = '<img src="'+data_uri+'"/>';
+      image_taken = data_uri;
+	  } );
+  }
+
+  function s(){
+    if(image_taken != null){
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/image", true);
+      xhr.send(image_taken);
+    }
+    else{alert("Take a photo first")}
+  }
+	</script>
+
+	<a href="javascript:void(take_snapshot())">Take Snapshot</a>
+  <button onclick=s()>I'm happy with the photo</button>
+</body>
