@@ -42,7 +42,7 @@ def dashboard():
 
     return render_template('dashboard.html', students=students)
 
-@app.route('/logout')
+@app.route('/logout', methods=['GET'])
 def logout():
     sessions.pop('teacher_id', None)
     return redirect(url_for('home'))
