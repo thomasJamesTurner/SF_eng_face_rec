@@ -1,4 +1,4 @@
-import os, flask, Bcrypt, MySQL
+import os, flask, SQLAlchemy, Bcrypt, MySQL
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
