@@ -1,4 +1,7 @@
-import os, flask, SQLAlchemy, Bcrypt, MySQL
+import os
+from flask import Flask, render_template, request, redirect, url_for, session
+from flask_bcrypt import Bcrypt
+from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
